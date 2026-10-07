@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BotRepute Protocol — Whitepaper & Pitch Deck</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #111827;
+      --card-hover: #1e293b;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #818cf8;
+      --emerald: #34d399;
+      --border: #1f2937;
+    }
+    @media print {
+      body { background: #ffffff !important; color: #111827 !important; padding: 0 !important; }
+      .no-print { display: none !important; }
+      .container { max-width: 100% !important; margin: 0 !important; padding: 24px !important; box-shadow: none !important; border: none !important; }
+      pre, code { background: #f3f4f6 !important; color: #111827 !important; border: 1px solid #e5e7eb !important; }
+      a { color: #0284c7 !important; }
+      .tag { border: 1px solid #cbd5e1 !important; color: #334155 !important; background: transparent !important; }
+      .callout { background: #f8fafc !important; color: #1e293b !important; border-left: 4px solid #0284c7 !important; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #e2e8f0 !important; color: #111827 !important; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--card);
+      padding: 52px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+      margin-bottom: 36px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 2.35rem;
+      margin: 0 0 12px 0;
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      color: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    p, li {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .callout {
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+    .callout strong {
+      color: var(--primary);
+    }
+    pre {
+      background: #0b0f19;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      font-size: 0.85rem;
+      color: #a5b4fc;
+      line-height: 1.5;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.92rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: rgba(255,255,255,0.03);
+      color: #ffffff;
+      font-weight: 600;
+    }
+    td code {
+      background: rgba(255,255,255,0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--primary);
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .print-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #0b0f19;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.6);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .card-stat {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .card-stat h4 {
+      margin: 0 0 6px 0;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .card-stat div {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+    Save as PDF / Print
+  </button>
+
+  <div class="container">
+    <div class="header">
+      <div class="tag">Botchain Ecosystem • Testnet 968</div>
+      <h1>BotRepute Protocol</h1>
+      <div class="tagline">"Reputation You Can Verify"</div>
+      <div class="meta">Decentralized Web3 Reputation & Cryptographic Attestation Protocol • Whitepaper & Pitch Deck</div>
+    </div>
+
+    <h2>Executive Summary</h2>
+    <p>
+      Web3 currently suffers from a fundamental trust deficit. Traditional identity and reputation approaches attempt to quantify credibility through opaque, arbitrary numerical scores (e.g., <em>"Reputation Score: 85/100"</em>), which are easily gamed, centralized, and lack verifiable context. Meanwhile, professional accomplishments, DAO contributions, hackathon honors, and security audit accreditations remain trapped in siloed Web2 platforms like Discord, Twitter, and LinkedIn.
+    </p>
+    <p>
+      <strong>BotRepute</strong> introduces a decentralized, cryptographic attestation protocol deployed on <strong>Botchain Testnet (Chain ID 968)</strong>. Instead of calculating synthetic scores, BotRepute anchors portable, tamper-proof credentials directly to recipient wallet addresses. Each credential is cryptographically signed by an authenticated issuer, timestamped on-chain, verifiable with zero gas or wallet connection, and governed by transparent lifecycle controls (Active, Expired, or Revoked).
+    </p>
+
+    <div class="grid">
+      <div class="card-stat">
+        <h4>Target Network</h4>
+        <div>Botchain (Chain ID 968)</div>
+      </div>
+      <div class="card-stat">
+        <h4>Trust Model</h4>
+        <div>Cryptographic Attestation</div>
+      </div>
+      <div class="card-stat">
+        <h4>Verification Gas</h4>
+        <div>0 BOHR (Zero-Wallet Free)</div>
+      </div>
+    </div>
+
+    <h2>1. The Problem</h2>
+    <ul>
+      <li><strong>Opaque & Gameable Reputation Scores</strong>: Existing Web3 reputation protocols rely on subjective formulas and centralized oracles that can be sybil-attacked, bought, or manipulated.</li>
+      <li><strong>Fragmented Credentials</strong>: High-value Web3 achievements—such as smart contract audits, core protocol contributions, and community leadership—are scattered across Discord servers, GitHub PRs, and off-chain databases.</li>
+      <li><strong>High Verification Friction</strong>: In many protocols, verifying a user's credentials requires connecting a web3 wallet, signing transactions, or paying gas fees, preventing mainstream adoption by recruiters, Web2 platforms, and casual observers.</li>
+      <li><strong>Lack of Lifecycle Governance</strong>: Static NFTs or simple tokens cannot handle credential expiration (e.g., a 1-year security auditor certificate) or legitimate revocation (e.g., when a role or affiliation is terminated).</li>
+    </ul>
+
+    <h2>2. The BotRepute Solution</h2>
+    <ul>
+      <li><strong>Cryptographic Attestations Over Arbitrary Scores</strong>: Trust is derived strictly from the cryptographically verified identity of the issuer, not an opaque algorithm.</li>
+      <li><strong>Zero-Wallet Public Verification</strong>: Anyone—recruiters, dApps, or community managers—can inspect, audit, and verify any attestation at <code>/verify?id=[ID]</code> without connecting a wallet or spending gas.</li>
+      <li><strong>Issuer-Controlled Revocation</strong>: Only the authentic issuing address can revoke an active attestation. No third party or platform admin can falsify, tamper with, or delete historical records.</li>
+      <li><strong>Time-Bound Validity</strong>: Native support for both permanent credentials (milestones, hackathon wins) and time-expiring accreditations (annual licenses, security clearance).</li>
+      <li><strong>Instant QR Code Sharing</strong>: Built-in QR code generator enables frictionless cross-device, offline, and real-world credential scanning.</li>
+      <li><strong>BotNS (.bot) Identity Ready</strong>: Pre-architected identity resolution layer to seamlessly resolve Botchain <code>.bot</code> domain names and wallet identities.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Core Trust Model:</strong><br>
+      BotRepute separates <em>Cryptographic Validity</em> from <em>Subjective Claims</em>. The protocol mathematically guarantees that an attestation was issued by the recorded issuer, directly to the recipient, and remains unrevoked and unexpired. Trust flows naturally from the reputation of the issuing entity.
+    </div>
+
+    <h2>3. Technical Architecture & Smart Contract</h2>
+    <p>
+      The core protocol is powered by <code>BotRepute.sol</code> deployed on Botchain Testnet. It maintains a secure, gas-optimized sequential registry of attestations protected by OpenZeppelin's <code>ReentrancyGuard</code>.
+    </p>
+
+    <pre><code>struct Attestation {
+    uint256 id;             // Unique sequential identifier (starts at 1)
+    address issuer;         // Msg.sender who signed the attestation
+    address recipient;      // Wallet receiving the credential
+    bytes32 credentialType; // keccak256 hash of credential category
+    string title;           // Short title (e.g., "Senior Smart Contract Auditor")
+    string description;     // Scope, milestone, or context
+    string metadataURI;     // Optional IPFS/Arweave URI for rich schemas
+    uint256 issuedAt;       // Unix timestamp of issuance
+    uint256 expiresAt;      // Expiration timestamp (0 = permanent)
+    bool revoked;           // Revocation state flag
+}</code></pre>
+
+    <h2>4. Key Ecosystem Use Cases</h2>
+    <ul>
+      <li><strong>DAO Governance & Working Groups</strong>: Issue proof of committee membership, governance roles, and milestone delivery.</li>
+      <li><strong>Web3 Talent & Developer Recruitment</strong>: Verifiable portfolio of completed bounties, code audits, and hackathon wins verifiable by HR without gas.</li>
+      <li><strong>Event & Hackathon Badging</strong>: Instant issuance of verifiable proof of participation, judging, and placement.</li>
+      <li><strong>Security & Auditing Credentials</strong>: Accredited firms issue time-bound security certifications that automatically expire or can be revoked if terms are breached.</li>
+      <li><strong>Community Sybil-Resistance</strong>: Whitelisting and gated access for authenticated bot, builder, or creator roles across the Botchain ecosystem.</li>
+    </ul>
+
+    <h2>5. Product Roadmap</h2>
+    <ul>
+      <li><strong>Phase 1: Core Protocol & MVP (Completed)</strong>
+        <br>✓ On-chain attestation engine & zero-wallet verification portal
+        <br>✓ Reusable credential card with dynamic QR code generation
+        <br>✓ Issuer dashboard with active revocation controls
+        <br>✓ Public wallet reputation profiles (<code>/profile/[address]</code>)
+      </li>
+      <li><strong>Phase 2: Ecosystem Integrations (Q2 2026)</strong>
+        <br>• Direct integration hooks with BotDAO, BotLaunch, BotProof, and BotRent
+        <br>• Native BotNS (.bot) name resolution integration
+        <br>• Decentralized JSON-LD schema support on IPFS / Arweave
+      </li>
+      <li><strong>Phase 3: Programmable Credentials (Q3 2026)</strong>
+        <br>• ERC-5192 Soulbound Token (SBT) minting badge wrapper
+        <br>• Cross-chain attestation verification via light client proofs
+        <br>• Automated credential issuance oracles for GitHub milestones
+      </li>
+    </ul>
+
+    <h2>6. Protocol Verification & Deployment Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Configuration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Protocol Name</strong></td>
+          <td>BotRepute</td>
+        </tr>
+        <tr>
+          <td><strong>Network</strong></td>
+          <td>Botchain Testnet (Bohr)</td>
+        </tr>
+        <tr>
+          <td><strong>Chain ID</strong></td>
+          <td><code>968</code></td>
+        </tr>
+        <tr>
+          <td><strong>Smart Contract Address</strong></td>
+          <td><code>0x0545d136b49c3de637ca8e1764E8bf9e563A866F</code></td>
+        </tr>
+        <tr>
+          <td><strong>RPC Endpoint</strong></td>
+          <td><code>https://rpc.bohr.life</code></td>
+        </tr>
+        <tr>
+          <td><strong>Block Explorer</strong></td>
+          <td><a href="https://scan.bohr.life/address/0x0545d136b49c3de637ca8e1764E8bf9e563A866F" target="_blank">scan.bohr.life/address/0x0545d136b49c3de637ca8e1764E8bf9e563A866F</a></td>
+        </tr>
+        <tr>
+          <td><strong>GitHub Repository</strong></td>
+          <td><a href="https://github.com/liljhnxn/botrepute" target="_blank">https://github.com/liljhnxn/botrepute</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+      © 2026 BotRepute Protocol • Built for Botchain Hackathon • Secured by Botchain Testnet
+    </div>
+  </div>
+
+</body>
+</html>
