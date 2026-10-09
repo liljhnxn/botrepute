@@ -70,29 +70,29 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <a
-                  href={botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}
+                  href="https://scan.botchain.ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-cyan-400 transition-colors"
                 >
-                  <span>{botchain.blockExplorers?.default.name || "Explorer"}</span>
+                  <span>BotScan</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
                 <a
-                  href={botchain.rpcUrls.default.http[0]}
+                  href="https://rpc.botchain.ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-cyan-400 transition-colors"
                 >
-                  <span>Botchain RPC ({botchain.id})</span>
+                  <span>Botchain RPC (677)</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
                 <a
-                  href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+                  href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors font-mono"

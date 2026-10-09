@@ -84,7 +84,7 @@ export const Navbar: React.FC = () => {
           {/* Right section: Explorer Link + Wallet Button + Mobile Toggle */}
           <div className="flex items-center gap-2.5">
             <a
-              href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+              href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 border border-slate-800 hover:border-slate-700 text-xs font-semibold transition-all shadow-sm group"
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-2 border-t border-slate-800/80">
             <a
-              href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+              href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}

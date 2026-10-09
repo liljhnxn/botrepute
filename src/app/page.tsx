@@ -127,7 +127,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           {/* Badge linking to Explorer */}
           <a
-            href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+            href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-6 transition-all group"
@@ -171,7 +171,7 @@ export default function HomePage() {
             </Link>
 
             <a
-              href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+              href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-sm sm:text-base border border-slate-800 hover:border-slate-700 transition-all duration-200 active:scale-95"
@@ -395,7 +395,7 @@ export default function HomePage() {
                 </span>
               </div>
               <a
-                href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+                href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3.5 py-2 rounded-lg bg-slate-950 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900 transition-colors group cursor-pointer block"

@@ -1,15 +1,5 @@
 import { defineChain } from "viem";
 
-const rpcUrl =
-  process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL && !process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL.includes("bohr")
-    ? process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL
-    : "https://rpc.botchain.ai";
-
-const explorerUrl =
-  process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL && !process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL.includes("bohr")
-    ? process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL
-    : "https://scan.botchain.ai";
-
 export const botchain = defineChain({
   id: 677,
   name: "BOT Chain Mainnet",
@@ -20,16 +10,16 @@ export const botchain = defineChain({
   },
   rpcUrls: {
     default: {
-      http: [rpcUrl],
+      http: ["https://rpc.botchain.ai"],
     },
     public: {
-      http: [rpcUrl],
+      http: ["https://rpc.botchain.ai"],
     },
   },
   blockExplorers: {
     default: {
       name: "BotScan",
-      url: explorerUrl,
+      url: "https://scan.botchain.ai",
     },
   },
 });

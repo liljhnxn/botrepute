@@ -35,7 +35,7 @@ export const TrustBanner: React.FC<TrustBannerProps> = ({ variant = "full", clas
           </p>
           <div className="mt-2 pt-2 border-t border-slate-800/80">
             <a
-              href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+              href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
