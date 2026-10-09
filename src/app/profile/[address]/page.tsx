@@ -150,7 +150,7 @@ export default function PublicProfilePage() {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
-              <span>BohrScan</span>
+              <span>Mainnet Explorer</span>
             </a>
 
             <button

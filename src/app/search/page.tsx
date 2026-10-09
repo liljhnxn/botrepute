@@ -69,7 +69,7 @@ export default function SearchPage() {
           Search BotRepute
         </h1>
         <p className="text-sm text-slate-400 mt-2 max-w-lg mx-auto">
-          Look up any wallet reputation profile or verify a specific credential attestation ID on Botchain Testnet.
+          Look up any wallet reputation profile or verify a specific credential attestation ID on BOT Chain Mainnet.
         </p>
       </div>
 

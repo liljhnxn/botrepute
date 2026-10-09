@@ -5,7 +5,7 @@ import * as path from "path";
 
 async function main() {
   console.log("==================================================");
-  console.log("Deploying BotRepute Protocol to Botchain Testnet");
+  console.log("Deploying BotRepute Protocol to BOT Chain Mainnet");
   console.log("==================================================");
 
   const [deployer] = await ethers.getSigners();
@@ -15,7 +15,7 @@ async function main() {
 
   const balance = await ethers.provider.getBalance(deployer.address);
   console.log(`Deployer Address: ${deployer.address}`);
-  console.log(`Deployer Balance: ${ethers.formatEther(balance)} BOHR`);
+  console.log(`Deployer Balance: ${ethers.formatEther(balance)} BOT`);
   console.log(`Network: ${network.name}`);
 
   const chainId = (await ethers.provider.getNetwork()).chainId;
@@ -28,7 +28,7 @@ async function main() {
   await botRepute.waitForDeployment();
 
   const contractAddress = await botRepute.getAddress();
-  const explorerUrl = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.bohr.life";
+  const explorerUrl = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai";
 
   console.log("\n==================================================");
   console.log("DEPLOYMENT SUCCESSFUL!");

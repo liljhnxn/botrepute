@@ -191,7 +191,7 @@ export default function IssuerDashboardPage() {
       {isRevokeSuccess && (
         <div className="p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
-          <span>Attestation successfully revoked on Botchain Testnet!</span>
+          <span>Attestation successfully revoked on BOT Chain Mainnet!</span>
         </div>
       )}
 

@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Shield, ExternalLink, Activity, CheckCircle2 } from "lucide-react";
+import { botchain } from "@/config/botchain";
+import { BOTREPUTE_CONTRACT_ADDRESS } from "@/config/contract";
 
 export const Footer: React.FC = () => {
   return (
@@ -22,7 +24,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex items-center gap-2 text-[11px] text-emerald-400 font-mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Botchain Testnet Online (Chain ID: 968)</span>
+              <span>{botchain.name} Online (Chain ID: {botchain.id})</span>
             </div>
           </div>
 
@@ -68,23 +70,34 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <a
-                  href="https://scan.bohr.life"
+                  href={botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-cyan-400 transition-colors"
                 >
-                  <span>BohrScan Explorer</span>
+                  <span>{botchain.blockExplorers?.default.name || "Explorer"}</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
                 <a
-                  href="https://rpc.bohr.life"
+                  href={botchain.rpcUrls.default.http[0]}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-cyan-400 transition-colors"
                 >
-                  <span>Botchain RPC (968)</span>
+                  <span>Botchain RPC ({botchain.id})</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors font-mono"
+                >
+                  <span>Contract ({BOTREPUTE_CONTRACT_ADDRESS.slice(0, 6)}...{BOTREPUTE_CONTRACT_ADDRESS.slice(-4)})</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -117,7 +130,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4">
             <span className="font-mono">Solidity ^0.8.24</span>
             <span>•</span>
-            <span className="font-mono">Chain ID: 968</span>
+            <span className="font-mono">Chain ID: {botchain.id}</span>
             <span>•</span>
             <span className="font-mono">Zero Centralized Gatekeeping</span>
           </div>

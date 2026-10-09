@@ -79,7 +79,7 @@ function VerifyContent() {
       const result = await fetchPublicAttestation(idBigInt);
 
       if (!result.attestation || result.attestation.id === 0n) {
-        setError(`Attestation #${cleaned} was not found on Botchain Testnet.`);
+        setError(`Attestation #${cleaned} was not found on ${botchain.name}.`);
         setAttestation(null);
       } else {
         setAttestation(result.attestation);
@@ -135,7 +135,7 @@ function VerifyContent() {
           Verify On-Chain Credential
         </h1>
         <p className="text-sm text-slate-400 mt-2 max-w-xl mx-auto">
-          Query the Botchain Testnet ledger directly. Verifications are cryptographic, instantaneous, and free.
+          Query the {botchain.name} ledger directly. Verifications are cryptographic, instantaneous, and free.
         </p>
       </div>
 
@@ -327,7 +327,7 @@ function VerifyContent() {
                 Network
               </span>
               <span className="font-mono text-cyan-400 font-semibold">
-                {botchain.name} (Chain 968)
+                {botchain.name} (Chain {botchain.id})
               </span>
             </div>
           </div>
@@ -356,9 +356,9 @@ function VerifyContent() {
                 href={getExplorerUrl("address", BOTREPUTE_CONTRACT_ADDRESS)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-2.5 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center gap-1.5 transition-colors"
+                className="px-2.5 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center gap-1.5 transition-colors font-medium"
               >
-                <span>BohrScan</span>
+                <span>Mainnet Explorer</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>

@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   title: "BotRepute | Decentralized Web3 Reputation & Credentials Protocol",
   description:
-    "Reputation You Can Verify. Build a portable Web3 reputation from verifiable on-chain credentials and attestations secured by Botchain Testnet.",
+    "Reputation You Can Verify. Build a portable Web3 reputation from verifiable on-chain credentials and attestations secured by BOT Chain Mainnet.",
   keywords: [
     "Web3 Reputation",
     "On-Chain Credentials",

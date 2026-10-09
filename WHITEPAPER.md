@@ -1,7 +1,7 @@
 # BotRepute Protocol — Whitepaper & Pitch Deck
 **"Reputation You Can Verify"**
 
-*Decentralized Web3 Reputation & Cryptographic Attestation Protocol on Botchain*
+*Decentralized Web3 Reputation & Cryptographic Attestation Protocol on BOT Chain Mainnet*
 
 ---
 
@@ -9,7 +9,7 @@
 
 Web3 currently suffers from a fundamental trust deficit. Traditional identity and reputation approaches attempt to quantify credibility through opaque, arbitrary numerical scores (e.g., *"Reputation Score: 85/100"*), which are easily gamed, centralized, and lack verifiable context. Meanwhile, professional accomplishments, DAO contributions, hackathon honors, and security audit accreditations remain trapped in siloed Web2 platforms like Discord, Twitter, and LinkedIn.
 
-**BotRepute** introduces a decentralized, cryptographic attestation protocol deployed on **Botchain Testnet (Chain ID 968)**. Instead of calculating synthetic scores, BotRepute anchors portable, tamper-proof credentials directly to recipient wallet addresses. Each credential is cryptographically signed by an authenticated issuer, timestamped on-chain, verifiable with zero gas or wallet connection, and governed by transparent lifecycle controls (Active, Expired, or Revoked).
+**BotRepute** introduces a decentralized, cryptographic attestation protocol deployed on **BOT Chain Mainnet (Chain ID 677)**. Instead of calculating synthetic scores, BotRepute anchors portable, tamper-proof credentials directly to recipient wallet addresses. Each credential is cryptographically signed by an authenticated issuer, timestamped on-chain, verifiable with zero gas or wallet connection, and governed by transparent lifecycle controls (Active, Expired, or Revoked).
 
 ---
 
@@ -47,7 +47,7 @@ BotRepute provides an open, non-custodial protocol for creating, managing, and v
 ## 4. Technical Architecture
 
 ### 4.1 Smart Contract: `BotRepute.sol`
-Deployed on Botchain Testnet (`Chain ID 968`), the contract manages the complete lifecycle of on-chain attestations with gas-optimized storage and strict security constraints.
+Deployed on BOT Chain Mainnet (`Chain ID 677`), the contract manages the complete lifecycle of on-chain attestations with gas-optimized storage and strict security constraints.
 
 ```solidity
 struct Attestation {
@@ -84,7 +84,7 @@ struct Attestation {
 
 ## 6. Tokenomics & Network Alignment
 
-* **Native Settlement**: Powered by Botchain (BOHR native token).
+* **Native Settlement**: Powered by Botchain (BOT native token).
 * **Low-Cost Issuance**: Highly optimized calldata and storage layouts ensure minimal gas cost for issuers.
 * **Free Public Reads**: Verification queries (`isValidAttestation`, `getAttestation`) are pure view calls with zero protocol fees.
 
@@ -92,8 +92,8 @@ struct Attestation {
 
 ## 7. Product Roadmap
 
-* **Phase 1: Core Protocol & MVP (Completed)**
-  * [x] Core `BotRepute.sol` smart contract deployed on Botchain Testnet.
+* **Phase 1: Core Protocol & Mainnet (Completed)**
+  * [x] Core `BotRepute.sol` smart contract deployed on BOT Chain Mainnet.
   * [x] Zero-wallet public verification portal (`/verify`).
   * [x] Interactive credential cards with dynamic QR code generation.
   * [x] Issuer management dashboard with live revocation control.
@@ -116,12 +116,12 @@ struct Attestation {
 | Parameter | Value |
 |---|---|
 | **Protocol Name** | BotRepute |
-| **Network** | Botchain Testnet (Bohr) |
-| **Chain ID** | `968` |
-| **Smart Contract Address** | `0x0545d136b49c3de637ca8e1764E8bf9e563A866F` |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
-| **Block Explorer** | `https://scan.bohr.life` |
-| **Explorer Verification** | [View on Bohr Scan](https://scan.bohr.life/address/0x0545d136b49c3de637ca8e1764E8bf9e563A866F) |
+| **Network** | BOT Chain Mainnet |
+| **Chain ID** | `677` |
+| **Smart Contract Address** | `0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad` |
+| **RPC Endpoint** | `https://rpc.botchain.ai` |
+| **Block Explorer** | `https://scan.botchain.ai` |
+| **Explorer Verification** | [View on BotScan](https://scan.botchain.ai/address/0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad) |
 | **Source Code Repository** | [https://github.com/liljhnxn/botrepute](https://github.com/liljhnxn/botrepute) |
 
 ---

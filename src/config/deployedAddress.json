@@ -1,6 +1,7 @@
 {
-  "contractAddress": "0x0545d136b49c3de637ca8e1764E8bf9e563A866F",
-  "chainId": 968,
-  "network": "botchain",
-  "deployedAt": "2026-09-17T13:14:00.000Z"
+  "contractAddress": "0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad",
+  "chainId": 677,
+  "network": "botchainMainnet",
+  "txHash": "0x421082b07a259ac7432074487c18a435ea94acf8255f0584b4574818e1bc2128",
+  "deployedAt": "2026-10-09T12:04:18.967Z"
 }

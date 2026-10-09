@@ -11,7 +11,7 @@ export const config = createConfig({
     injected(),
   ],
   transports: {
-    [botchain.id]: http(process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.bohr.life"),
+    [botchain.id]: http(process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.botchain.ai"),
   },
   ssr: true,
 });

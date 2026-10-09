@@ -19,7 +19,7 @@ export const NetworkWarning: React.FC = () => {
         <div className="flex items-center gap-2">
           <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
           <span>
-            You are currently connected to <strong>{chain.name || `Chain ID ${chain.id}`}</strong>. BotRepute runs exclusively on <strong>Botchain Testnet (Chain ID 968)</strong>.
+            You are currently connected to <strong>{chain.name || `Chain ID ${chain.id}`}</strong>. BotRepute runs exclusively on <strong>{botchain.name} (Chain ID {botchain.id})</strong>.
           </span>
         </div>
         <button
@@ -30,7 +30,7 @@ export const NetworkWarning: React.FC = () => {
           {isPending ? (
             <RefreshCw className="w-3.5 h-3.5 animate-spin" />
           ) : null}
-          Switch to Botchain Testnet
+          Switch to {botchain.name}
         </button>
       </div>
     </div>

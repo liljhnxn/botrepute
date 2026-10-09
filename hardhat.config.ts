@@ -20,7 +20,7 @@ const config: HardhatUserConfig = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200,
+        runs: 1, // Lowest deployment cost
       },
     },
   },
@@ -29,22 +29,38 @@ const config: HardhatUserConfig = {
       chainId: 31337,
     },
     botchain: {
-      url: process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.bohr.life",
-      chainId: 968,
+      url: process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.botchain.ai",
+      chainId: 677,
       accounts: formattedKey ? [formattedKey] : [],
+      gasPrice: 20000000000,
+    },
+    botchainMainnet: {
+      url: process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.botchain.ai",
+      chainId: 677,
+      accounts: formattedKey ? [formattedKey] : [],
+      gasPrice: 20000000000,
     },
   },
   etherscan: {
     apiKey: {
       botchain: "none",
+      botchainMainnet: "none",
     },
     customChains: [
       {
         network: "botchain",
-        chainId: 968,
+        chainId: 677,
         urls: {
-          apiURL: "https://scan.bohr.life/api",
-          browserURL: "https://scan.bohr.life",
+          apiURL: "https://scan.botchain.ai/api",
+          browserURL: "https://scan.botchain.ai",
+        },
+      },
+      {
+        network: "botchainMainnet",
+        chainId: 677,
+        urls: {
+          apiURL: "https://scan.botchain.ai/api",
+          browserURL: "https://scan.botchain.ai",
         },
       },
     ],

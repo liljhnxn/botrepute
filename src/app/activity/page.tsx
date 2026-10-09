@@ -127,7 +127,7 @@ export default function ActivityPage() {
           <Activity className="w-12 h-12 text-slate-600 mx-auto mb-3" />
           <h3 className="text-base font-bold text-white">No On-Chain Activity Recorded Yet</h3>
           <p className="text-xs text-slate-400 max-w-sm mx-auto mt-1 mb-4">
-            Be the first to issue an on-chain credential on Botchain Testnet!
+            Be the first to issue an on-chain credential on BOT Chain Mainnet!
           </p>
           <Link
             href="/issue"
@@ -211,7 +211,7 @@ export default function ActivityPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
-                    title="View on BohrScan"
+                    title="View on Mainnet Explorer"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>

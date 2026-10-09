@@ -67,7 +67,7 @@ export function parseContractError(error: any): string {
     return "Attestation ID not found on Botchain.";
   }
   if (message.includes("insufficient funds")) {
-    return "Insufficient BOHR balance for transaction gas fees.";
+    return "Insufficient BOT balance for transaction gas fees.";
   }
 
   // Shorten lengthy viem revert errors
@@ -79,6 +79,6 @@ export function getExplorerUrl(
   type: "address" | "tx" | "token",
   value: string
 ): string {
-  const base = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.bohr.life";
+  const base = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai";
   return `${base}/${type}/${value}`;
 }

@@ -1,13 +1,13 @@
 # BotRepute — Decentralized Web3 Reputation & Credentials Protocol
 
 > **"Reputation You Can Verify."**  
-> *Build a portable Web3 reputation from verifiable on-chain credentials secured by Botchain.*
+> *Build a portable Web3 reputation from verifiable on-chain credentials secured by BOT Chain Mainnet.*
 
 ---
 
 ## 1. Overview
 
-**BotRepute** is a decentralized protocol engineered on **Botchain Testnet (Chain ID 968)** allowing organizations, DAOs, communities, creators, and builders to issue, verify, revoke, and manage transparent on-chain credentials and attestations.
+**BotRepute** is a decentralized protocol engineered on **BOT Chain Mainnet (Chain ID 677)** allowing organizations, DAOs, communities, creators, and builders to issue, verify, revoke, and manage transparent on-chain credentials and attestations.
 
 Unlike legacy Web3 reputation systems that fabricate opaque, arbitrary scores (e.g., *"Reputation: 94/100"*), BotRepute focuses exclusively on **verifiable cryptographic attestations**. Every credential is anchored directly to the recipient's wallet address, linked to a cryptographically authenticated issuer, and subject to transparent status tracking (Active, Expired, or Revoked).
 
@@ -22,7 +22,7 @@ Unlike legacy Web3 reputation systems that fabricate opaque, arbitrary scores (e
 - **Time-Based Expiration**: Support for both permanent credentials and time-bound accreditations with automatic on-chain validity checking.
 - **QR Code Verification**: Instant QR code generation linking directly to `/verify?id=[ID]` for real-world or cross-device credential scanning.
 - **BotNS Identity Resolution Ready**: Pre-architected identity resolution abstraction (`resolveIdentity(address)`) designed for seamless `.bot` namespace integration.
-- **Live Activity Feed**: Real-time stream of mints, active credentials, and revocations on Botchain Testnet without synthetic data.
+- **Live Activity Feed**: Real-time stream of mints, active credentials, and revocations on BOT Chain Mainnet without synthetic data.
 
 ---
 
@@ -90,30 +90,31 @@ struct Attestation {
 
 ---
 
-## 7. Botchain Testnet Network Configuration
+## 7. BOT Chain Mainnet Configuration
 
 | Parameter | Value |
 |---|---|
-| **Network Name** | Botchain Testnet (Bohr) |
-| **Chain ID** | `968` |
-| **Native Currency** | BOHR (18 decimals) |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
-| **Block Explorer** | `https://scan.bohr.life` |
+| **Network Name** | BOT Chain Mainnet |
+| **Chain ID** | `677` |
+| **Native Currency** | BOT (18 decimals) |
+| **RPC Endpoint** | `https://rpc.botchain.ai` |
+| **Block Explorer** | `https://scan.botchain.ai` |
+| **Contract Address** | `0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad` |
 
 ---
 
 ## 8. Environment Variables
 
-Create `.env.local` or configure your hosting environment:
+Create `.env` or configure your hosting environment:
 
 ```bash
-# Botchain Configuration
-NEXT_PUBLIC_BOTCHAIN_CHAIN_ID=968
-NEXT_PUBLIC_BOTCHAIN_RPC_URL=https://rpc.bohr.life
-NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL=https://scan.bohr.life
+# BOT Chain Mainnet Configuration
+NEXT_PUBLIC_BOTCHAIN_CHAIN_ID=677
+NEXT_PUBLIC_BOTCHAIN_RPC_URL=https://rpc.botchain.ai
+NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL=https://scan.botchain.ai
 
 # Deployed BotRepute Contract Address
-NEXT_PUBLIC_BOTREPUTE_CONTRACT_ADDRESS=0x0545d136b49c3de637ca8e1764E8bf9e563A866F
+NEXT_PUBLIC_BOTREPUTE_CONTRACT_ADDRESS=0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad
 
 # Deployment Private Key (Never commit private keys!)
 BOTCHAIN_PRIVATE_KEY=
@@ -137,7 +138,6 @@ npx hardhat compile
 ```bash
 npx hardhat test
 ```
-*Executes 15 comprehensive unit tests covering deployment, issuance, zero-address rejection, title validation, expiration logic, time manipulation, unauthorized revocation rejection, double-revocation guard, and type filtering.*
 
 ### 4. Run Frontend Locally
 ```bash
@@ -147,21 +147,21 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ---
 
-## 10. Deployment to Botchain Testnet
+## 10. Deployment to BOT Chain Mainnet
 
 Ensure `BOTCHAIN_PRIVATE_KEY` is configured in `.env`:
 
 ```bash
-npx hardhat run scripts/deploy.ts --network botchain
+npm run deploy:mainnet
 ```
 
-The script deploys `BotRepute.sol`, validates the deployment, logs block explorer links, and automatically updates `src/config/deployedAddress.json`.
+The script deploys `BotRepute.sol` with the minimum network fee floor (`20.0 Gwei`), logs block explorer links, and automatically updates `src/config/deployedAddress.json`.
 
 ---
 
 ## 11. Limitations & Roadmap
 
-### Known Limitations (MVP)
+### Known Limitations
 - **Metadata Storage**: Off-chain metadata currently relies on external IPFS/Arweave gateways specified by the issuer.
 - **BotNS Name Resolution**: Prepared as an abstraction; will dynamically link to the Botchain `.bot` naming registry once live.
 
@@ -171,6 +171,7 @@ The script deploys `BotRepute.sol`, validates the deployment, logs block explore
 - [x] Reusable credential card with QR code sharing
 - [x] Issuer management dashboard with revocation controls
 - [x] Public wallet reputation profiles (`/profile/[address]`)
+- [x] Deployed and verified on BOT Chain Mainnet (`0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad`)
 - [ ] Direct integration hooks for BotDAO, BotLaunch, BotProof, and BotRent
 - [ ] Schema validation for decentralized JSON-LD credential metadata
 - [ ] Soulbound token (SBT) minting badge representation for EVM wallets

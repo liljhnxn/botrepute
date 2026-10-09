@@ -187,7 +187,7 @@ export default function IssueCredentialPage() {
                   Credential Successfully Issued!
                 </h3>
                 <p className="text-xs text-slate-300 mt-0.5">
-                  The attestation has been confirmed on Botchain Testnet block #{receipt?.blockNumber?.toString() || "latest"}.
+                  The attestation has been confirmed on BOT Chain Mainnet block #{receipt?.blockNumber?.toString() || "latest"}.
                 </p>
               </div>
 

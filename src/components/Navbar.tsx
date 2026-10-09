@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { WalletButton } from "./WalletButton";
+import { botchain } from "@/config/botchain";
+import { BOTREPUTE_CONTRACT_ADDRESS } from "@/config/contract";
 import {
   Shield,
   Award,
@@ -14,6 +16,7 @@ import {
   Activity,
   Menu,
   X,
+  ExternalLink,
 } from "lucide-react";
 
 export const Navbar: React.FC = () => {
@@ -46,7 +49,7 @@ export const Navbar: React.FC = () => {
                     Bot<span className="text-cyan-400">Repute</span>
                   </span>
                   <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                    968
+                    {botchain.id}
                   </span>
                 </div>
                 <span className="text-[10px] text-slate-400 -mt-1 hidden sm:block">
@@ -78,8 +81,20 @@ export const Navbar: React.FC = () => {
             </nav>
           </div>
 
-          {/* Right section: Wallet Button + Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          {/* Right section: Explorer Link + Wallet Button + Mobile Toggle */}
+          <div className="flex items-center gap-2.5">
+            <a
+              href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 border border-slate-800 hover:border-slate-700 text-xs font-semibold transition-all shadow-sm group"
+              title="View BotRepute Smart Contract on BOT Chain Mainnet Explorer"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Mainnet Explorer</span>
+              <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400 transition-colors" />
+            </a>
+
             <WalletButton />
 
             <button
@@ -115,6 +130,22 @@ export const Navbar: React.FC = () => {
               </Link>
             );
           })}
+
+          <div className="pt-2 border-t border-slate-800/80">
+            <a
+              href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 transition-colors"
+            >
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>BOT Chain Mainnet Explorer</span>
+              </span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       )}
     </header>

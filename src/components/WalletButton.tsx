@@ -111,7 +111,7 @@ export const WalletButton: React.FC = () => {
             {isWrongChain && (
               <div className="mb-2 p-2 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] flex items-center gap-1.5">
                 <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-                <span>Wrong network! Switch to Botchain (968).</span>
+                <span>Wrong network! Switch to {botchain.name} ({botchain.id}).</span>
               </div>
             )}
 
@@ -135,7 +135,7 @@ export const WalletButton: React.FC = () => {
               >
                 <span className="flex items-center gap-2">
                   <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-                  View on BohrScan
+                  View on Explorer
                 </span>
               </a>
 

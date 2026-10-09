@@ -1,5 +1,7 @@
 import React from "react";
-import { ShieldAlert, Info } from "lucide-react";
+import { ShieldAlert, Info, ExternalLink } from "lucide-react";
+import { botchain } from "@/config/botchain";
+import { BOTREPUTE_CONTRACT_ADDRESS } from "@/config/contract";
 
 interface TrustBannerProps {
   variant?: "inline" | "full";
@@ -29,8 +31,19 @@ export const TrustBanner: React.FC<TrustBannerProps> = ({ variant = "full", clas
             BotRepute Cryptographic Trust Model
           </h4>
           <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-            BotRepute provides cryptographic proof of <strong className="text-slate-200">issuance, non-repudiation, and validity</strong> on Botchain Testnet. An attestation confirms that the recorded issuer granted this credential to the recipient and that it is currently unrevoked. The protocol does not fabricate subjective scores or independently audit off-chain claims.
+            BotRepute provides cryptographic proof of <strong className="text-slate-200">issuance, non-repudiation, and validity</strong> on BOT Chain Mainnet. An attestation confirms that the recorded issuer granted this credential to the recipient and that it is currently unrevoked. The protocol does not fabricate subjective scores or independently audit off-chain claims.
           </p>
+          <div className="mt-2 pt-2 border-t border-slate-800/80">
+            <a
+              href={`${botchain.blockExplorers?.default.url || "https://scan.botchain.ai"}/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+            >
+              <span>View BotRepute Contract on BOT Chain Mainnet Explorer</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </div>

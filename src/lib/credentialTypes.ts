@@ -48,7 +48,7 @@ export const PREDEFINED_CREDENTIAL_TYPES: CredentialTypeDefinition[] = [
     id: "COMMUNITY_MEMBER",
     hash: keccak256(toHex("COMMUNITY_MEMBER")),
     label: "Community Member",
-    description: "Active participant in community events, testnets, or ambassadors.",
+    description: "Active participant in community events, ecosystem activities, or ambassadors.",
     badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/30",
   },
   {
