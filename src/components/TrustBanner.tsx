@@ -40,6 +40,11 @@ export const TrustBanner: React.FC<TrustBannerProps> = ({ variant = "full", clas
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
             >
+              <img
+                src="/botchain-logo.png"
+                alt="BOT Chain"
+                className="w-3.5 h-3.5 rounded-sm object-contain shrink-0"
+              />
               <span>View BotRepute Contract on BOT Chain Mainnet Explorer</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>

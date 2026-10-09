@@ -79,8 +79,12 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-between group hover:text-cyan-400 transition-colors"
                 >
-                  <span className="flex items-center gap-1.5 font-medium text-slate-300 group-hover:text-cyan-400">
-                    <Globe className="w-3.5 h-3.5 text-cyan-400" />
+                  <span className="flex items-center gap-2 font-medium text-slate-300 group-hover:text-cyan-400">
+                    <img
+                      src="/botchain-logo.png"
+                      alt="BOT Chain"
+                      className="w-4 h-4 rounded-sm object-contain shrink-0 border border-emerald-500/30"
+                    />
                     <span>BOT Chain Website</span>
                   </span>
                   <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-cyan-400" />
@@ -93,8 +97,12 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-between group hover:text-cyan-400 transition-colors"
                 >
-                  <span className="flex items-center gap-1.5 font-medium text-slate-300 group-hover:text-cyan-400">
-                    <Search className="w-3.5 h-3.5 text-cyan-400" />
+                  <span className="flex items-center gap-2 font-medium text-slate-300 group-hover:text-cyan-400">
+                    <img
+                      src="/botchain-logo.png"
+                      alt="BOT Chain"
+                      className="w-4 h-4 rounded-sm object-contain shrink-0 border border-emerald-500/30"
+                    />
                     <span>BOT Chain Explorer</span>
                   </span>
                   <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-cyan-400" />
@@ -153,9 +161,13 @@ export const Footer: React.FC = () => {
               href="https://botchain.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white text-xs font-semibold border border-slate-700 transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white text-xs font-semibold border border-slate-700 transition-colors"
             >
-              <Globe className="w-3.5 h-3.5 text-cyan-400" />
+              <img
+                src="/botchain-logo.png"
+                alt="BOT Chain"
+                className="w-3.5 h-3.5 rounded-sm object-contain"
+              />
               <span>botchain.ai</span>
               <ExternalLink className="w-3 h-3 text-slate-400" />
             </a>
@@ -163,9 +175,13 @@ export const Footer: React.FC = () => {
               href="https://scan.botchain.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-xs font-semibold border border-cyan-500/30 transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-xs font-semibold border border-cyan-500/30 transition-colors"
             >
-              <Search className="w-3.5 h-3.5" />
+              <img
+                src="/botchain-logo.png"
+                alt="BOT Chain"
+                className="w-3.5 h-3.5 rounded-sm object-contain"
+              />
               <span>scan.botchain.ai</span>
               <ExternalLink className="w-3 h-3" />
             </a>

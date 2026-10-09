@@ -87,10 +87,14 @@ export const Navbar: React.FC = () => {
               href={`https://scan.botchain.ai/address/${BOTREPUTE_CONTRACT_ADDRESS}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 border border-slate-800 hover:border-slate-700 text-xs font-semibold transition-all shadow-sm group"
+              className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 border border-slate-800 hover:border-slate-700 text-xs font-semibold transition-all shadow-sm group"
               title="View BotRepute Smart Contract on BOT Chain Mainnet Explorer"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <img
+                src="/botchain-logo.png"
+                alt="BOT Chain"
+                className="w-4 h-4 rounded-sm object-contain shrink-0"
+              />
               <span>Mainnet Explorer</span>
               <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400 transition-colors" />
             </a>
@@ -140,7 +144,11 @@ export const Navbar: React.FC = () => {
               className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 transition-colors"
             >
               <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <img
+                  src="/botchain-logo.png"
+                  alt="BOT Chain"
+                  className="w-4 h-4 rounded-sm object-contain shrink-0"
+                />
                 <span>BOT Chain Mainnet Explorer</span>
               </span>
               <ExternalLink className="w-4 h-4" />

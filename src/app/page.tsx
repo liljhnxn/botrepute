@@ -135,7 +135,11 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-6 transition-all group"
             title="View Contract on BOT Chain Mainnet Explorer"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <img
+              src="/botchain-logo.png"
+              alt="BOT Chain"
+              className="w-4 h-4 rounded-sm object-contain"
+            />
             <span>{botchain.name} • Chain ID: {botchain.id}</span>
             <ExternalLink className="w-3 h-3 text-cyan-400 group-hover:translate-x-0.5 transition-transform" />
           </a>
@@ -400,7 +404,11 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-100 hover:text-white text-xs font-semibold border border-slate-700 transition-all shadow-sm group"
                 >
-                  <Globe className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+                  <img
+                    src="/botchain-logo.png"
+                    alt="BOT Chain"
+                    className="w-4 h-4 rounded-sm object-contain shrink-0"
+                  />
                   <span>BOT Chain Website</span>
                   <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400" />
                 </a>
@@ -411,7 +419,11 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-xs font-semibold border border-cyan-500/30 transition-all group"
                 >
-                  <Search className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+                  <img
+                    src="/botchain-logo.png"
+                    alt="BOT Chain"
+                    className="w-4 h-4 rounded-sm object-contain shrink-0"
+                  />
                   <span>BOT Chain Explorer</span>
                   <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
                 </a>
@@ -455,7 +467,12 @@ export default function HomePage() {
                 className="px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 hover:border-cyan-500/40 hover:bg-slate-900/80 transition-colors col-span-2 group block"
               >
                 <span className="text-slate-500 block text-[10px]">MAINNET EXPLORER</span>
-                <span className="text-cyan-400 font-bold flex items-center gap-1 group-hover:underline">
+                <span className="text-cyan-400 font-bold flex items-center gap-1.5 group-hover:underline">
+                  <img
+                    src="/botchain-logo.png"
+                    alt="BOT Chain"
+                    className="w-3.5 h-3.5 rounded-sm object-contain"
+                  />
                   <span>scan.botchain.ai</span>
                   <ExternalLink className="w-3 h-3 text-cyan-400" />
                 </span>
