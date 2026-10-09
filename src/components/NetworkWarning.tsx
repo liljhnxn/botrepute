@@ -21,7 +21,7 @@ export const NetworkWarning: React.FC = () => {
         await switchChain({ chainId: botchain.id });
       }
     } catch {
-      // If chain not yet registered in wallet (common when moving from testnet to mainnet)
+      // If chain not yet registered in wallet
       if (typeof window !== "undefined" && (window as any).ethereum) {
         try {
           await (window as any).ethereum.request({

@@ -1,9 +1,11 @@
 import deployedAddress from "./deployedAddress.json";
 
+const envAddress = process.env.NEXT_PUBLIC_BOTREPUTE_CONTRACT_ADDRESS;
 export const BOTREPUTE_CONTRACT_ADDRESS =
-  (process.env.NEXT_PUBLIC_BOTREPUTE_CONTRACT_ADDRESS as `0x${string}`) ||
-  ((deployedAddress as { contractAddress?: string })?.contractAddress as `0x${string}`) ||
-  ("0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad" as `0x${string}`);
+  envAddress && envAddress.toLowerCase() !== "0x0545d136b49c3de637ca8e1764e8bf9e563a866f"
+    ? (envAddress as `0x${string}`)
+    : (((deployedAddress as { contractAddress?: string })?.contractAddress as `0x${string}`) ||
+      ("0x3ec80F1940CeBa9B85112a3f90a55Cc0c7b1a2ad" as `0x${string}`));
 
 export const BOTREPUTE_ABI = [
   {

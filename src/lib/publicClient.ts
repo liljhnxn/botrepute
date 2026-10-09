@@ -4,7 +4,7 @@ import { BOTREPUTE_ABI, BOTREPUTE_CONTRACT_ADDRESS } from "@/config/contract";
 
 export const publicClient = createPublicClient({
   chain: botchain,
-  transport: http(process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.botchain.ai"),
+  transport: http(botchain.rpcUrls.default.http[0]),
 });
 
 export interface AttestationData {

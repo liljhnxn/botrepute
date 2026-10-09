@@ -79,6 +79,10 @@ export function getExplorerUrl(
   type: "address" | "tx" | "token",
   value: string
 ): string {
-  const base = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai";
+  const envUrl = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL;
+  const base =
+    envUrl && !envUrl.includes("bohr")
+      ? envUrl
+      : "https://scan.botchain.ai";
   return `${base}/${type}/${value}`;
 }
