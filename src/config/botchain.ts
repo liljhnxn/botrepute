@@ -1,7 +1,7 @@
 import { defineChain } from "viem";
 
 export const botchain = defineChain({
-  id: Number(process.env.NEXT_PUBLIC_BOTCHAIN_CHAIN_ID || 677),
+  id: 677,
   name: "BOT Chain Mainnet",
   nativeCurrency: {
     decimals: 18,
@@ -22,5 +22,4 @@ export const botchain = defineChain({
       url: process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai",
     },
   },
-  testnet: false,
 });

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useAccount, useConnect, useDisconnect, useBalance } from "wagmi";
+import { useAccount, useConnect, useDisconnect, useBalance, useSwitchChain } from "wagmi";
 import { botchain } from "@/config/botchain";
 import { formatAddress } from "@/lib/botns";
 import { getExplorerUrl } from "@/lib/utils";
@@ -13,16 +13,49 @@ import {
   Check,
   ChevronDown,
   AlertTriangle,
+  RefreshCw,
 } from "lucide-react";
 
 export const WalletButton: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [switching, setSwitching] = useState(false);
 
   const { address, isConnected, chain } = useAccount();
   const { connectors, connect, isPending } = useConnect();
   const { disconnect } = useDisconnect();
+  const { switchChain } = useSwitchChain();
+
+  const handleSwitchNetwork = async () => {
+    setSwitching(true);
+    try {
+      if (switchChain) {
+        await switchChain({ chainId: botchain.id });
+      }
+    } catch {
+      if (typeof window !== "undefined" && (window as any).ethereum) {
+        try {
+          await (window as any).ethereum.request({
+            method: "wallet_addEthereumChain",
+            params: [
+              {
+                chainId: `0x${botchain.id.toString(16)}`,
+                chainName: botchain.name,
+                nativeCurrency: botchain.nativeCurrency,
+                rpcUrls: botchain.rpcUrls.default.http,
+                blockExplorerUrls: [botchain.blockExplorers.default.url],
+              },
+            ],
+          });
+        } catch (addError) {
+          console.error("Failed to add BOT Chain Mainnet:", addError);
+        }
+      }
+    } finally {
+      setSwitching(false);
+    }
+  };
 
   const { data: balanceData } = useBalance({
     address,
@@ -109,10 +142,21 @@ export const WalletButton: React.FC = () => {
             </div>
 
             {isWrongChain && (
-              <div className="mb-2 p-2 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] flex items-center gap-1.5">
-                <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-                <span>Wrong network! Switch to {botchain.name} ({botchain.id}).</span>
-              </div>
+              <button
+                onClick={handleSwitchNetwork}
+                disabled={switching}
+                className="w-full mb-2 p-2 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-200 text-[11px] flex items-center justify-between gap-1.5 transition-colors text-left"
+              >
+                <div className="flex items-center gap-1.5">
+                  {switching ? (
+                    <RefreshCw className="w-3.5 h-3.5 shrink-0 animate-spin text-amber-400" />
+                  ) : (
+                    <AlertTriangle className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                  )}
+                  <span>Wrong network! Switch to {botchain.name} ({botchain.id})</span>
+                </div>
+                <span className="text-[10px] font-bold underline shrink-0">Switch</span>
+              </button>
             )}
 
             <div className="space-y-1">
